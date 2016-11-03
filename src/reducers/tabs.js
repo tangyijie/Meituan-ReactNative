@@ -10,7 +10,6 @@ const initialState = {
 };
 
 export default function tabs(state=initialState, action){
-    console.info(action);
     switch(action.type){
         case TYPES.TAB_HOME:
             return {
