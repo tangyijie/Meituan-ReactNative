@@ -3,46 +3,25 @@
  */
 'use strict';
 
-import * as TYPES from '../actions/types';
+import * as TYPES from '../contants/types';
 
 const initialState = {
-    isLoggedIn: false,
-    user: {},
-    status: null,
+    LoginModalVisible : false
 };
 
 export default function user(state=initialState, action){
 
     switch(action.type){
-        case TYPES.LOGGED_DOING:
+        case TYPES.LOGIN_SHOW:
             return {
                 ...state,
-                status: 'doing'
-            };
-
-        case TYPES.LOGGED_IN:
-            return {
-                ...state,
-                isLoggedIn: true,
-                user: action.user,
-                status: 'done'
-            };
-
-        case TYPES.LOGGED_OUT:
-            return {
-                ...state,
-                isLoggedIn: false,
-                user: {},
-                status: null
-            };
-        case TYPES.LOGGED_ERROR:
-            return {
-                ...state,
-                isLoggedIn: false,
-                user: {},
-                status: null
+                LoginModalVisible:true
             }
-
+        case TYPES.LOGIN_HIDE:
+            return {
+                ...state,
+                LoginModalVisible:false
+            }
         default:
             return state;
     }

@@ -1,7 +1,7 @@
 /**
  * Created by mrd on 16/11/3.
  */
-import * as Type from './types';
+import * as Type from '../contants/types';
 export function goHomePage() {
     return  { type : Type.TAB_HOME }
 }

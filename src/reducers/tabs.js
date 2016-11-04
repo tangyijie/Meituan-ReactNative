@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import * as TYPES from '../actions/types';
+import * as TYPES from '../contants/types';
 
 const initialState = {
     TabState:"HomePage"
