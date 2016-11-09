@@ -75,8 +75,8 @@ var styles = StyleSheet.create({
     ModalTitle:{
         flexDirection:'row',
         height:(Platform.OS === 'android' ? 44 : 60),
-        backgroundColor:'#36b9af',
         paddingTop: (Platform.OS === 'android' ? 0 : 16),
+        backgroundColor:'#36b9af',
         justifyContent: 'space-between',
         alignItems: 'center',
     },

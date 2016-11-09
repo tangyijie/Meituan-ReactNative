@@ -8,10 +8,25 @@ import {connect} from 'react-redux';
 class ShopPage extends Component {
     render() {
         return (
-            <Text>ShopPage</Text>
+            <View style={{flex:1}}>
+                <View style={styles.title}>
+
+                </View>
+                <Text>ShopPage</Text>
+            </View>
         )
     }
 }
+var styles = StyleSheet.create({
+    title:{
+        flexDirection:'row',
+        height:(Platform.OS === 'android' ? 44 : 60),
+        paddingTop: (Platform.OS === 'android' ? 0 : 16),
+        backgroundColor:'#36b9af',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    }
+})
 function select(store) {
     return {}
 }

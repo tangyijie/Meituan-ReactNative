@@ -34,7 +34,6 @@ class App extends Component {
                     navigationBar ={
                         <Tabs />
                     }
-                    sceneStyle={{paddingTop: (Platform.OS === 'android' ? 0 : 16)}}
                 />
             </View>
         )
