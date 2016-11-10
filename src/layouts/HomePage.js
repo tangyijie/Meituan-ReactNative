@@ -6,6 +6,8 @@ import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput
 import {connect} from 'react-redux';
 import { Icon } from 'react-native-elements';
 
+import Cat from '../components/Cat';
+
 class HomePage extends Component {
     render() {
         return (
@@ -30,6 +32,7 @@ class HomePage extends Component {
                         </View>
                     </View>
                 </View>
+                <Cat />
                 <View style={{flex:1}}>
                     <Text>HomePage</Text>
                 </View>

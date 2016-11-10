@@ -24,9 +24,6 @@ class App extends Component {
                 <Navigator
                     style={{flex : 1}}
                     initialRoute={initialRoute}
-                    configureScene={(route) => {
-                        return Navigator.SceneConfigs.VerticalDownSwipeJump; 			//页面切换动画效果
-                    }}
                     renderScene={(route, navigator) => {
                         let Component = route.component;
                         return <Component {...route.params} navigator={navigator} />
