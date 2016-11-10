@@ -8,16 +8,11 @@ import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity,Image} fro
 
 import * as State from '../../actions/tabs';
 
-// import HomePage from '../../layouts/HomePage';
-// import MorePage from '../../layouts/MorePage';
-// import PersonPage from '../../layouts/PersonPage';
-// import ShopPage from '../../layouts/ShopPage';
-
-
 class Tabs extends Component {
 
     constructor(props) {
         super(props);
+        //将初始化的TAB源存入state
         this.state = {
             TabData:props.TabData
         }
@@ -26,6 +21,7 @@ class Tabs extends Component {
     shouldComponentUpdate(props, state){
         //判断Tab状态是否改变
         if(this.props.TabState!=props.TabState){
+            //遍历state源,跳转分页
             this.state.TabData.forEach(function (item) {
                 if(props.TabState==item.TabState){
                     if(props.navigator) {
@@ -95,5 +91,4 @@ function select(store) {
         TabData : store.tabsStore.TabData
     }
 }
-// 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
 export default connect(select)(Tabs);
