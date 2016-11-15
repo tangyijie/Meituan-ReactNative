@@ -10,7 +10,7 @@ import {goBack} from '../actions/cats';
 class Meishi extends Component {
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,backgroundColor:"#ffffff"}}>
                 <TouchableOpacity onPress={this.goBack.bind(this)} style={{paddingTop:20}}>
                     <Text>美食</Text>
                 </TouchableOpacity>
