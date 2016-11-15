@@ -21,14 +21,6 @@ class PersonPage extends Component {
     }
 }
 var styles = StyleSheet.create({
-    title:{
-        flexDirection:'row',
-        height:(Platform.OS === 'android' ? 44 : 60),
-        paddingTop: (Platform.OS === 'android' ? 0 : 16),
-        backgroundColor:'#36b9af',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    }
 })
 function select(store) {
     return {}
