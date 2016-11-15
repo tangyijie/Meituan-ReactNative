@@ -39,11 +39,17 @@ class Tabs extends Component {
     }
 
     render() {
-        return(
-            <View style={{height:44, borderWidth:1, borderColor:"#f4f4f4",flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:5}}>
-                {this.renderItem()}
-            </View>
-        )
+        console.info(this.props.navigator.state.routeStack.length);
+        if(this.props.navigator.state.routeStack.length<=1){
+            return(
+                <View style={{height:44, borderWidth:1, borderColor:"#f4f4f4",flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:5}}>
+                    {this.renderItem()}
+                </View>
+            )
+        }else{
+            return null;
+        }
+
     }
 
     renderItem(){

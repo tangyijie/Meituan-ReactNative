@@ -27,7 +27,12 @@ class App extends Component {
                     initialRoute={initialRoute}
                     renderScene={(route, navigator) => {
                         let Component = route.component;
-                        return <View style={{flex:1}}><NavTitle route={route} navigator={navigator} /><Component {...route.params} navigator={navigator} /></View>
+                        return (
+                            <View style={{flex:1}}>
+                                <NavTitle route={route} navigator={navigator} />
+                                <Component {...route.params} navigator={navigator} />
+                            </View>
+                        )
                     }}
                     navigationBar ={
                         <Tabs />
