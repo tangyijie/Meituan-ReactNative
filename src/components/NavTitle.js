@@ -6,6 +6,8 @@ import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput
 import {connect} from 'react-redux';
 import { Icon } from 'react-native-elements';
 
+import {goBack} from '../actions/cats';
+
 class NavTitle extends Component {
     render(){
         if(this.props.route.component.WrappedComponent.prototype.customNavigationBar!=undefined){
@@ -29,9 +31,11 @@ class NavTitle extends Component {
     backButton(){
         if(this.props.navigator.state.routeStack.length>1){
             return(
-                <View style={styles.button}>
-                    <Text style={styles.buttonText}>返回</Text>
-                </View>
+                <TouchableOpacity style={styles.button} onPress={this.goBack.bind(this)}>
+                    <View>
+                        <Text style={styles.buttonText}>返回</Text>
+                    </View>
+                </TouchableOpacity>
             )
         }else{
             return(
@@ -39,6 +43,12 @@ class NavTitle extends Component {
 
                 </View>
             )
+        }
+    }
+    goBack(){
+        this.props.dispatch(goBack());
+        if(this.props.navigator) {
+            this.props.navigator.pop();
         }
     }
     rightButton(){
