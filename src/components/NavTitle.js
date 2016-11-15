@@ -8,7 +8,6 @@ import { Icon } from 'react-native-elements';
 
 class NavTitle extends Component {
     render(){
-        console.info(this);
         if(this.props.route.component.WrappedComponent.prototype.customNavigationBar!=undefined){
             return(
                 <View>
@@ -28,11 +27,19 @@ class NavTitle extends Component {
         }
     }
     backButton(){
-        return(
-            <View style={styles.button}>
-                <Text style={styles.buttonText}>返回</Text>
-            </View>
-        )
+        if(this.props.navigator.state.routeStack.length>1){
+            return(
+                <View style={styles.button}>
+                    <Text style={styles.buttonText}>返回</Text>
+                </View>
+            )
+        }else{
+            return(
+                <View style={styles.button}>
+
+                </View>
+            )
+        }
     }
     rightButton(){
         return(
