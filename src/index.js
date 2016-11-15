@@ -5,8 +5,9 @@ import React, {Component} from 'react';
 import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, TextInput} from 'react-native';
 import {connect} from 'react-redux';
 import HomePage from './layouts/HomePage';
-import Tabs from './components/Tabs/Tabs';
+import Tabs from './components/Tabs';
 import Login from './components/Login';
+import NavTitle from './components/NavTitle';
 
 let initialRoute={
     title:"首页",
@@ -26,7 +27,7 @@ class App extends Component {
                     initialRoute={initialRoute}
                     renderScene={(route, navigator) => {
                         let Component = route.component;
-                        return <Component {...route.params} navigator={navigator} />
+                        return <View style={{flex:1}}><NavTitle route={route} navigator={navigator} /><Component {...route.params} navigator={navigator} /></View>
                     }}
                     navigationBar ={
                         <Tabs />

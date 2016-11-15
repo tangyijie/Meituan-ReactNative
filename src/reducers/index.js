@@ -4,8 +4,10 @@
 import { combineReducers } from 'redux';
 import userReducer from './user';
 import tabsReducer from './tabs';
+import catsReducer from './cat';
 
 export default combineReducers({
     userStore: userReducer,
-    tabsStore: tabsReducer
+    tabsStore: tabsReducer,
+    catsStore: catsReducer
 });

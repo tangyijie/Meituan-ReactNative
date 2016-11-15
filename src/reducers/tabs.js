@@ -16,32 +16,32 @@ const initialState = {
             title:"首页",
             Component:HomePage,
             TabState:"HomePage",
-            imagePathOn:require("../components/Tabs/homepage1.png"),
-            imagePathOff:require("../components/Tabs/homepage.png"),
+            imagePathOn:require("../images/Tabs/homepage1.png"),
+            imagePathOff:require("../images/Tabs/homepage.png"),
             imageStyle:{}
         },
         {
             title:"商家",
             Component:ShopPage,
             TabState:"ShopPage",
-            imagePathOn:require("../components/Tabs/shop1.png"),
-            imagePathOff:require("../components/Tabs/shop.png"),
+            imagePathOn:require("../images/Tabs/shop1.png"),
+            imagePathOff:require("../images/Tabs/shop.png"),
             imageStyle:{}
         },
         {
             title:"个人",
             Component:PersonPage,
             TabState:"PersonPage",
-            imagePathOn:require("../components/Tabs/person1.png"),
-            imagePathOff:require("../components/Tabs/person.png"),
+            imagePathOn:require("../images/Tabs/person1.png"),
+            imagePathOff:require("../images/Tabs/person.png"),
             imageStyle:{}
         },
         {
             title:"更多",
             Component:MorePage,
             TabState:"MorePage",
-            imagePathOn:require("../components/Tabs/more1.png"),
-            imagePathOff:require("../components/Tabs/more.png"),
+            imagePathOn:require("../images/Tabs/more1.png"),
+            imagePathOff:require("../images/Tabs/more.png"),
             imageStyle:{height:6,marginTop:10,marginBottom:10}
         },
     ]

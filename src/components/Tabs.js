@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity,Image} from 'react-native';
 
-import * as State from '../../actions/tabs';
+import * as State from '../actions/tabs';
 
 class Tabs extends Component {
 
