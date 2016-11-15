@@ -9,9 +9,6 @@ class MorePage extends Component {
     render() {
         return (
             <View style={{flex:1}}>
-                <View style={styles.title}>
-
-                </View>
                 <Text>MorePage</Text>
             </View>
         )

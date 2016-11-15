@@ -10,9 +10,6 @@ class PersonPage extends Component {
     render() {
         return (
         <View style={{flex:1}}>
-            <View style={styles.title}>
-
-            </View>
             <TouchableOpacity onPress={this.Login.bind(this)}>
                 <Text>点击登录</Text>
             </TouchableOpacity>

@@ -9,32 +9,37 @@ import { Icon } from 'react-native-elements';
 import Cat from '../components/Cat';
 
 class HomePage extends Component {
+    // 构造
     render() {
         return (
             <View style={{flex:1}}>
-                <View style={styles.title}>
-                    <View style={styles.titleRow}>
-                        <Text style={{color:'#fff'}}>上海 </Text>
-                        <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
-                    </View>
-                    <View style={styles.titleInput}>
-                        <View>
-                            <Icon name="search" size={16} color="#36b9af" type='font-awesome'/>
-                        </View>
-                        <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
-                    </View>
-                    <View style={styles.titleRow}>
-                        <View style={styles.titleRow}>
-                            <Icon name="qrcode" size={16} color="#fff" type='font-awesome'/>
-                        </View>
-                        <View style={styles.titleRow}>
-                            <Icon name="bell" size={16} color="#fff" type='font-awesome'/>
-                        </View>
-                    </View>
-                </View>
-                <Cat />
+                <Cat navigator={this.props.navigator}/>
                 <View style={{flex:1}}>
                     <Text>HomePage</Text>
+                </View>
+            </View>
+        )
+    }
+    customNavigationBar() {
+        return(
+            <View  style={styles.title}>
+                <View style={styles.titleRow}>
+                    <Text style={{color:'#fff'}}>上海 </Text>
+                    <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
+                </View>
+                <View style={styles.titleInput}>
+                    <View>
+                        <Icon name="search" size={16} color="#36b9af" type='font-awesome'/>
+                    </View>
+                    <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
+                </View>
+                <View style={styles.titleRow}>
+                    <View style={styles.titleRow}>
+                        <Icon name="qrcode" size={16} color="#fff" type='font-awesome'/>
+                    </View>
+                    <View style={styles.titleRow}>
+                        <Icon name="bell" size={16} color="#fff" type='font-awesome'/>
+                    </View>
                 </View>
             </View>
         )
