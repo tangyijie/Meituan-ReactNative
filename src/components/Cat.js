@@ -38,7 +38,7 @@ class Cat extends Component {
     }
     render() {
         return (
-            <Swiper height={180} paginationStyle={{bottom:5}} >
+            <Swiper height={180} paginationStyle={{bottom:5}} style={this.props.style}>
                 {this.renderView()}
             </Swiper>
         )

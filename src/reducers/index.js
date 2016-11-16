@@ -5,9 +5,11 @@ import { combineReducers } from 'redux';
 import userReducer from './user';
 import tabsReducer from './tabs';
 import catsReducer from './cat';
+import headlineReducer from './headline';
 
 export default combineReducers({
     userStore: userReducer,
     tabsStore: tabsReducer,
-    catsStore: catsReducer
+    catsStore: catsReducer,
+    headlineStore: headlineReducer
 });

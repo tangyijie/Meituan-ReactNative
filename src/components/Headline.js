@@ -14,37 +14,43 @@ class Headline extends Component {
     }
     render() {
         return (
-            <View style={{flexDirection:'row',height: 60}}>
+            <View style={[{flexDirection:'row',height: 60},this.props.style]}>
                 <View style={styles.HLTitle}>
-                    <Text>上海头条</Text>
+                    <Text style={{color:"red",fontSize:20,width:40}}>上海头条</Text>
                 </View>
                 <Swiper height={60} horizontal={false}
                         width={width*0.8} autoplay={true}
                         showsPagination={false}
                         style={{flexDirection: 'column',width:width*0.8}}>
-                    <View style={styles.page}>
-                        <View style={styles.item}>
-                            <Text style={styles.text}>4</Text>
-                            <Text style={styles.text}>1</Text>
-                        </View>
-                        <View style={styles.item}>
-                            <Text style={styles.text}>4</Text>
-                            <Text style={styles.text}>2</Text>
-                        </View>
-                    </View>
-                    <View style={styles.page}>
-                        <View style={styles.item}>
-                            <Text style={styles.text}>4</Text>
-                            <Text style={styles.text}>3</Text>
-                        </View>
-                        <View style={styles.item}>
-                            <Text style={styles.text}>4</Text>
-                            <Text style={styles.text}>4</Text>
-                        </View>
-                    </View>
+                    {this.renderPage()}
                 </Swiper>
             </View>
         )
+    }
+    renderPage(){
+        let pageList = [];
+        for(var i = 0 ;i<this.props.headlineData.length/2;i++){
+            pageList.push(
+                <View style={styles.page} key={i*100}>
+                    {this.renderItem(i)}
+                </View>
+            )
+        }
+        return pageList;
+    }
+    renderItem(page){
+        let itemList = [];
+        for(var i = page*2;i<page*2+2&&i<this.props.headlineData.length;i++){
+            itemList.push(
+                <View style={styles.item} key={i}>
+                    <View style={styles.type}>
+                        <Text style={{fontSize:12,color:"red"}}>{this.props.headlineData[i].type}</Text>
+                    </View>
+                    <Text style={styles.text} numberOfLines={1}>{this.props.headlineData[i].text}</Text>
+                </View>
+            )
+        }
+        return itemList;
     }
 }
 
@@ -65,13 +71,24 @@ var styles = StyleSheet.create({
         alignItems: 'center',
     },
     text:{
-        fontSize:16,
-
+        marginLeft:5,
+        flex:1,
+        width:100
+    },
+    type:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        width:32,
+        height:18,
+        borderColor:"red",
+        borderWidth:1,
+        borderRadius:5
     }
 });
 
 function select(store) {
     return {
+        headlineData: store.headlineStore.headlineData
     }
 }
 

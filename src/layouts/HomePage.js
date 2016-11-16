@@ -13,9 +13,9 @@ class HomePage extends Component {
     // 构造
     render() {
         return (
-            <View style={{flex:1}}>
-                <Cat navigator={this.props.navigator}/>
-                <Headline />
+            <View style={{flex:1,backgroundColor: "#f3f3f3"}}>
+                <Cat navigator={this.props.navigator} style={{backgroundColor: "#ffffff"}}/>
+                <Headline style={{backgroundColor: "#ffffff",marginTop:2}}/>
                 <View style={{flex:1}}>
                     <Text>HomePage</Text>
                 </View>
