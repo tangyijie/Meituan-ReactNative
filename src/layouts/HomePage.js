@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import { Icon } from 'react-native-elements';
 
 import Cat from '../components/Cat';
+import Headline from '../components/Headline';
 
 class HomePage extends Component {
     // 构造
@@ -14,6 +15,7 @@ class HomePage extends Component {
         return (
             <View style={{flex:1}}>
                 <Cat navigator={this.props.navigator}/>
+                <Headline />
                 <View style={{flex:1}}>
                     <Text>HomePage</Text>
                 </View>

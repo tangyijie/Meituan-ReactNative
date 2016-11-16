@@ -3,7 +3,6 @@
  */
 'use strict';
 
-import * as TYPES from '../contants/types';
 import Meishi from '../layouts/Meishi';
 
 const initialState = {
@@ -50,5 +49,5 @@ export default function cats(state=initialState, action){
             }
         }
     }
-    return state;
+    return initialState;
 }
