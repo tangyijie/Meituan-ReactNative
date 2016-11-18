@@ -2,31 +2,67 @@
  * Created by mrd on 16/11/3.
  */
 import React, {Component} from 'react';
-import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput} from 'react-native';
+import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput,ListView,ActivityIndicator} from 'react-native';
 import {connect} from 'react-redux';
 import { Icon } from 'react-native-elements';
+import {PullList} from 'react-native-pull';
 
 import Cat from '../components/Cat';
 import Headline from '../components/Headline';
+import Card from '../components/Card';
 
 class HomePage extends Component {
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {};
+      }
     // 构造
     render() {
         return (
             <View style={{flex:1,backgroundColor: "#f3f3f3"}}>
-                <Cat navigator={this.props.navigator} style={{backgroundColor: "#ffffff"}}/>
-                <Headline style={{backgroundColor: "#ffffff",marginTop:2}}/>
-                <View style={{flex:1}}>
-                    <Text>HomePage</Text>
-                </View>
+                <PullList
+                    topIndicatorRender={this.onRefresh}
+                    topIndicatorHeight={40}
+                    renderHeader={this.listHeader.bind(this)}
+                    dataSource={(new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})).cloneWithRows(this.props.listData)}
+                    renderRow={this.listItem}
+                />
             </View>
         )
     }
-    customNavigationBar() {
+    onRefresh(pulling, pullok, pullrelease){
         return(
-            <View  style={styles.title}>
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 44}}>
+                <ActivityIndicator size="small" color="gray" />
+                {pulling ? <Text>当前PullList状态: pulling...</Text> : null}
+                {pullok ? <Text>当前PullList状态: pullok......</Text> : null}
+                {pullrelease ? <Text>当前PullList状态: pullrelease......</Text> : null}
+            </View>
+        )
+    }
+    listItem(item, sectionID, rowID, highlightRow){
+        return(
+            <Card data={item} />
+        )
+    }
+    listHeader(){
+        return(
+                <View>
+                    <Cat navigator={this.props.navigator} style={{backgroundColor: "#ffffff"}}/>
+                    <Headline style={{backgroundColor: "#ffffff",marginTop:2}}/>
+                    <View style={{justifyContent: 'center',alignItems: 'center',height:44,backgroundColor: "#ffffff",marginTop:2}}>
+                        <Text style={{color: "#aaaaaa"}}>- 猜你喜欢 -</Text>
+                    </View>
+                </View>
+            )
+    }
+    customNavigationBar(page) {
+        return(
+            <View style={styles.title}>
                 <View style={styles.titleRow}>
-                    <Text style={{color:'#fff'}}>上海 </Text>
+                    <Text style={{color:'#fff'}}>{page.props.Location} </Text>
                     <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
                 </View>
                 <View style={styles.titleInput}>
@@ -83,7 +119,9 @@ var styles = StyleSheet.create({
 })
 
 function select(store) {
-    return {}
+    return {
+        listData: store.dataStore.foodData.concat(store.dataStore.takeoutData)
+    }
 }
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
 export default connect(select)(HomePage);

@@ -6,10 +6,12 @@ import userReducer from './user';
 import tabsReducer from './tabs';
 import catsReducer from './cat';
 import headlineReducer from './headline';
+import dataReducer from './data';
 
 export default combineReducers({
     userStore: userReducer,
     tabsStore: tabsReducer,
     catsStore: catsReducer,
-    headlineStore: headlineReducer
+    headlineStore: headlineReducer,
+    dataStore: dataReducer
 });

@@ -6,11 +6,13 @@
 import * as TYPES from '../contants/types';
 
 const initialState = {
-    LoginModalVisible : false
+    LoginModalVisible : false,
+    Location : "定位中...",
+    status: null
 };
 
 export default function user(state=initialState, action){
-
+    console.info(action);
     switch(action.type){
         case TYPES.LOGIN_SHOW:
             return {
@@ -21,6 +23,17 @@ export default function user(state=initialState, action){
             return {
                 ...state,
                 LoginModalVisible:false
+            }
+        case TYPES.GETING_LOCATION:
+            return {
+                ...state,
+                status:"doing"
+            }
+        case TYPES.LOCATION_DONE:
+            return {
+                ...state,
+                status:"done",
+                Location:action.location
             }
         default:
             return state;

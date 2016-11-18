@@ -20,17 +20,17 @@ const initialState = {
         {name: "丽人",pic:require("../images/Cats/liren.png"),component:Meishi},
         {name: "景点",pic:require("../images/Cats/jingdian.png"),component:Meishi},
         
-        {name: "高端酒店",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "足疗按摩",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "洗浴/汗蒸",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "母婴亲子",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "结婚",pic:require("../images/Cats/dianying.png"),component:Meishi},
+        {name: "高端酒店",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "足疗按摩",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "洗浴/汗蒸",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "母婴亲子",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "结婚",pic:require("../images/loadingPic.png"),component:Meishi},
 
-        {name: "主题公园",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "动植物园",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "学习培训",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "家装",pic:require("../images/Cats/dianying.png"),component:Meishi},
-        {name: "全部分类",pic:require("../images/Cats/dianying.png"),component:Meishi},
+        {name: "主题公园",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "动植物园",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "学习培训",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "家装",pic:require("../images/loadingPic.png"),component:Meishi},
+        {name: "全部分类",pic:require("../images/loadingPic.png"),component:Meishi},
     ]
 };
 

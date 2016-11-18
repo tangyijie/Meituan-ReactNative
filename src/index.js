@@ -4,10 +4,13 @@
 import React, {Component} from 'react';
 import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, TextInput} from 'react-native';
 import {connect} from 'react-redux';
+
 import HomePage from './layouts/HomePage';
 import Tabs from './components/Tabs';
 import Login from './components/Login';
 import NavTitle from './components/NavTitle';
+
+import {getLocation} from './actions/user';
 
 let initialRoute={
     title:"首页",
@@ -17,6 +20,7 @@ let initialRoute={
 class App extends Component {
     constructor(props) {
         super(props);
+        this.props.dispatch(getLocation());
     }
     render() {
         return (

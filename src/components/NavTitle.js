@@ -12,13 +12,13 @@ class NavTitle extends Component {
     render(){
         if(this.props.route.component.WrappedComponent.prototype.customNavigationBar!=undefined){
             return(
-                <View>
-                    {this.props.route.component.WrappedComponent.prototype.customNavigationBar()}
+                <View style={{zIndex:50}}>
+                    {this.props.route.component.WrappedComponent.prototype.customNavigationBar(this)}
                 </View>
             )
         }else{
             return (
-                <View style={styles.navTitle}>
+                <View style={[styles.navTitle,{zIndex:50}]}>
                     {this.backButton()}
                     <View style={styles.title}>
                         <Text style={styles.titleText}>{this.props.route.title}</Text>
@@ -90,6 +90,8 @@ var styles = StyleSheet.create({
 
 function select(store) {
     return {
+        Location: store.userStore.Location,
+        status: store.userStore.status
     }
 }
 export default connect(select)(NavTitle);
