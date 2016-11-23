@@ -2,7 +2,7 @@
  * Created by mrd on 16/11/3.
  */
 import React, {Component} from 'react';
-import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput,ListView,ActivityIndicator} from 'react-native';
+import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput,ListView,ActivityIndicator,ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import { Icon } from 'react-native-elements';
 import {PullList} from 'react-native-pull';
@@ -10,6 +10,8 @@ import {PullList} from 'react-native-pull';
 import Cat from '../components/Cat';
 import Headline from '../components/Headline';
 import Card from '../components/Card';
+import RefreshListview from '../components/RefreshListview';
+
 
 class HomePage extends Component {
     // 构造
@@ -22,9 +24,9 @@ class HomePage extends Component {
     render() {
         return (
             <View style={{flex:1,backgroundColor: "#f3f3f3"}}>
-                <PullList
-                    topIndicatorRender={this.onRefresh}
-                    topIndicatorHeight={40}
+                <RefreshListview
+                    onRefresh={this.onRefresh}
+                    removeClippedSubviews={false}
                     renderHeader={this.listHeader.bind(this)}
                     dataSource={(new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})).cloneWithRows(this.props.listData)}
                     renderRow={this.listItem}
@@ -32,16 +34,21 @@ class HomePage extends Component {
             </View>
         )
     }
-    onRefresh(pulling, pullok, pullrelease){
-        return(
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 44}}>
-                <ActivityIndicator size="small" color="gray" />
-                {pulling ? <Text>当前PullList状态: pulling...</Text> : null}
-                {pullok ? <Text>当前PullList状态: pullok......</Text> : null}
-                {pullrelease ? <Text>当前PullList状态: pullrelease......</Text> : null}
-            </View>
-        )
+    // onRefresh(pulling, pullok, pullrelease){
+    //     return(
+    //         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 44}}>
+    //             <ActivityIndicator size="small" color="gray" />
+    //             {pulling ? <Text>当前PullList状态: pulling...</Text> : null}
+    //             {pullok ? <Text>当前PullList状态: pullok......</Text> : null}
+    //             {pullrelease ? <Text>当前PullList状态: pullrelease......</Text> : null}
+    //         </View>
+    //     )
+    // }
+
+    onRefresh(){
+        console.info("哈哈哈 我刷新了");
     }
+
     listItem(item, sectionID, rowID, highlightRow){
         return(
             <Card data={item} />
