@@ -15,7 +15,7 @@ class Cat extends Component {
     }
     shouldComponentUpdate(props, state){
         if(props.catState==""){
-            return true
+            return false
         }
         //判断Tab状态是否改变
         if(this.props.catState!=props.catState){
@@ -32,9 +32,9 @@ class Cat extends Component {
                     return false;
                 }
             });
-            return true;
+            return false;
         }
-        return true;
+        return false;
     }
     render() {
         return (

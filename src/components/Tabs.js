@@ -35,7 +35,7 @@ class Tabs extends Component {
             });
             return true;
         }
-        return true;
+        return false;
     }
 
     render() {

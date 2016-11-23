@@ -16,7 +16,7 @@ class Headline extends Component {
         return (
             <View style={[{flexDirection:'row',height: 60},this.props.style]}>
                 <View style={styles.HLTitle}>
-                    <Text style={{color:"red",fontSize:20,width:40}}>上海头条</Text>
+                    <Text style={{color:"red",fontSize:20,width:55}}>上海头条</Text>
                 </View>
                 <Swiper height={60} horizontal={false}
                         width={width*0.8} autoplay={true}
