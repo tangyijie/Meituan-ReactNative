@@ -13,3 +13,4 @@ export const LOGIN_HIDE = 'LOGIN_HIDE';
 //for Location
 export const GETING_LOCATION = "GETING_LOCATION";
 export const LOCATION_DONE = "LOCATION_DONE";
+export const LOCATION_ERROR = "LOCATION_ERROR";

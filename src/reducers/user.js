@@ -12,7 +12,6 @@ const initialState = {
 };
 
 export default function user(state=initialState, action){
-    console.info(action);
     switch(action.type){
         case TYPES.LOGIN_SHOW:
             return {
@@ -34,6 +33,12 @@ export default function user(state=initialState, action){
                 ...state,
                 status:"done",
                 Location:action.location
+            }
+        case TYPES.LOCATION_ERROR:
+            return{
+                ...state,
+                status:"error",
+                Location:"请选择"
             }
         default:
             return state;
