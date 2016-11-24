@@ -3,11 +3,13 @@
  */
 import React, {Component} from 'react';
 
-import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, TextInput, ListView,ActivityIndicator} from 'react-native';
+import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, PanResponder,Modal, TextInput, ListView,ActivityIndicator} from 'react-native';
 
 var _scrollView: ScrollView;
 //刷新栏高度
 var refreshHeadHeight = 44;
+//刷新敏感度
+var refreshHeight = 1;
 
 export default class RefreshListview extends Component {
 
@@ -30,15 +32,31 @@ export default class RefreshListview extends Component {
         // onResponderRelease(evt)当触摸停止时执行
 
         this.gestureHandlers = {
-            onStartShouldSetResponder: () => true,
-            onMoveShouldSetResponder: ()=> true,
+            onStartShouldSetResponder: (evt) => {
+                console.info("Start");
+                return true;
+            },
+            onMoveShouldSetResponder: (evt,gesture) => {
+                console.info("Move");
+                return true;
+            },
             onResponderGrant: (evt) =>{
                 // 滑动判定
+                console.info("Grant");
                 this.setState({touchState:true});
             },
+            onResponderTerminationRequest: (evt) => {
+                console.info("Request");
+                return false
+            },
+            onResponderEnd: (evt) => {
+                console.info("end");
+            },
             onResponderRelease: (evt) =>{
+                console.info("Release");
                 // 若完整下拉出刷新头 则执行刷新事件
-                if(_scrollView.scrollProperties.offset<1){
+                if(_scrollView.scrollProperties.offset<refreshHeight){
+                    console.info("开始刷新");
                     // 若当前状态为已完成
                     if(this.state.refreshState=="done"){
                         // 将状态更变为正在刷新
@@ -47,14 +65,14 @@ export default class RefreshListview extends Component {
                         this.props.onRefresh();
                         var self = this;
                         // 播放刷新动画
-                        _scrollView.scrollTo({y: 1})
+                        _scrollView.scrollTo({y: refreshHeight})
                         setTimeout(function () {
                             // 大概2秒后关闭刷新动画
                             _scrollView.scrollTo({y: refreshHeadHeight});
                         },2000)
                     }
                 }
-                if(_scrollView.scrollProperties.offset>=1&&_scrollView.scrollProperties.offset<refreshHeadHeight){
+                if(_scrollView.scrollProperties.offset>=refreshHeight&&_scrollView.scrollProperties.offset<refreshHeadHeight){
                     // 若将刷新头拉出 但并未完整拉出 则不刷新 并恢复成没下拉的状态
                     _scrollView.scrollTo({y: refreshHeadHeight});
                 }
@@ -70,9 +88,10 @@ export default class RefreshListview extends Component {
             <ListView
                 {...this.props}
                 {...this.gestureHandlers}
-                onScroll = {this.mScroll.bind(this)}
                 ref = {(scrollView) => { _scrollView = scrollView; }}
+                onScroll = {this.mScroll.bind(this)}
                 renderHeader = {this.mRenderHeader.bind(this)}
+
             />
             )
     }
