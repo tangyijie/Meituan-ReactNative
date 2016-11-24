@@ -26,11 +26,11 @@ class Login extends Component {
                     </View>
                     <View style={styles.ModalBox}>
                         <Text style={styles.ModalText}>账号</Text>
-                        <TextInput style={styles.ModalInputText} placeholder="请输入手机号"/>
+                        <TextInput style={styles.ModalInputText} placeholder="请输入手机号" underlineColorAndroid="transparent"/>
                     </View>
                     <View style={styles.ModalBox}>
                         <Text style={styles.ModalText}>密码</Text>
-                        <TextInput style={styles.ModalInputText} secureTextEntry={true} placeholder="请输入密码"/>
+                        <TextInput style={styles.ModalInputText} secureTextEntry={true} placeholder="请输入密码" underlineColorAndroid="transparent"/>
                     </View>
                     <View style={[styles.ModalBox,{marginTop:20,borderBottomWidth: 0}]}>
                         <TouchableOpacity style={styles.ModalButton}>
