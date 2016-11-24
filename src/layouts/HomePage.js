@@ -9,6 +9,7 @@ import {PullList} from 'react-native-pull';
 
 import Cat from '../components/Cat';
 import Headline from '../components/Headline';
+import Recommend from '../components/Recommend';
 import Card from '../components/Card';
 import RefreshListview from '../components/RefreshListview';
 
@@ -59,6 +60,7 @@ class HomePage extends Component {
                 <View>
                     <Cat navigator={this.props.navigator} style={{backgroundColor: "#ffffff"}}/>
                     <Headline style={{backgroundColor: "#ffffff",marginTop:2}}/>
+                    <Recommend style={{marginTop:8,marginBottom:8}}/>
                     <View style={{justifyContent: 'center',alignItems: 'center',height:44,backgroundColor: "#ffffff",marginTop:2}}>
                         <Text style={{color: "#aaaaaa"}}>- 猜你喜欢 -</Text>
                     </View>
