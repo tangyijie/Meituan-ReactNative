@@ -4,8 +4,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput,Dimensions,Image} from 'react-native';
 import {connect} from 'react-redux';
-import { Icon } from 'react-native-elements';
-
 import {goBack} from '../actions/cats';
 
 class NavTitle extends Component {

@@ -1,7 +1,7 @@
 /**
  * Created by mrd on 16/11/4.
  */
-import { MapView, MapTypes, MapModule, Geolocation } from 'react-native-baidu-map';
+import { Geolocation } from 'react-native-baidu-map';
 
 import * as TYPES from '../contants/types';
 
@@ -15,7 +15,7 @@ export function hideLogin() {
 export function getLocation() {
     return function (dispatch) {
         dispatch({type : TYPES.GETING_LOCATION});
-        return Geolocation.getCurrentPosition().then(
+        Geolocation.getCurrentPosition().then(
             data => {
                 Geolocation.reverseGeoCodeGPS(data.latitude,data.longitude).then(
                     data => {

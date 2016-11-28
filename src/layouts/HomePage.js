@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput,ListView,ActivityIndicator,ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import { Icon } from 'react-native-elements';
-import {PullList} from 'react-native-pull';
 
 import Cat from '../components/Cat';
 import Headline from '../components/Headline';
@@ -68,6 +67,24 @@ class HomePage extends Component {
             )
     }
     customNavigationBar(page) {
+        // return(
+        //     <View style={styles.title}>
+        //         <View style={styles.titleRow}>
+        //             <Text style={{color:'#fff'}}>{page.props.Location} </Text>
+        //         </View>
+        //         <View style={styles.titleInput}>
+        //             <View>
+        //             </View>
+        //             <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
+        //         </View>
+        //         <View style={styles.titleRow}>
+        //             <View style={styles.titleRow}>
+        //             </View>
+        //             <View style={styles.titleRow}>
+        //             </View>
+        //         </View>
+        //     </View>
+        // )
         return(
             <View style={styles.title}>
                 <View style={styles.titleRow}>
