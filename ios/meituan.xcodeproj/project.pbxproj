@@ -931,7 +931,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.meituan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.meituan1;
 				PRODUCT_NAME = meituan;
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -964,7 +964,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.meituan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.meituan1;
 				PRODUCT_NAME = meituan;
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
