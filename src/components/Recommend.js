@@ -25,7 +25,6 @@ class Recommend extends Component {
     }
 
     renderItem() {
-        console.info(width);
         let obj =[];
         for(var i = 0; i<6; i++){
             obj.push(

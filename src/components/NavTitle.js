@@ -8,7 +8,8 @@ import {goBack} from '../actions/cats';
 
 class NavTitle extends Component {
     render(){
-        if(this.props.route.component.WrappedComponent.prototype.customNavigationBar!=undefined){
+        //判断是否有自定义标题
+        if(typeof (this.props.route.component.WrappedComponent)!="undefined" && typeof (this.props.route.component.WrappedComponent.prototype.customNavigationBar)!="undefined"){
             return(
                 <View style={{zIndex:50}}>
                     {this.props.route.component.WrappedComponent.prototype.customNavigationBar(this)}

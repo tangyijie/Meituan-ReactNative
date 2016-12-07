@@ -19,9 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-//  #ifdef DEBUG
-//  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.109:8081/index.ios.bundle?platform=ios&dev=true"];
-//  #endif
+  #ifdef DEBUG
+  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.109:8081/index.ios.bundle?platform=ios&dev=true"];
+  #endif
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
   [RCTBaiduMapViewManager initSDK:@"gYuMrBTGRmdBF5Xa9stfmcDCSpaGGXMG"];

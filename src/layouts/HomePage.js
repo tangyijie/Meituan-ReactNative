@@ -11,6 +11,8 @@ import Headline from '../components/Headline';
 import Recommend from '../components/Recommend';
 import Card from '../components/Card';
 import RefreshListview from '../components/RefreshListview';
+import QRCodeScreen from './QRCodeScreen';
+import QrcodePage from './QrcodePage';
 
 
 class HomePage extends Component {
@@ -97,16 +99,42 @@ class HomePage extends Component {
                     </View>
                     <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
                 </View>
-                <View style={styles.titleRow}>
-                    <View style={styles.titleRow}>
-                        <Icon name="qrcode" size={16} color="#fff" type='font-awesome'/>
-                    </View>
+                <View style={[styles.titleRow,{paddingLeft:20}]}>
+                    <TouchableOpacity onPress={()=>{
+                    if(Platform.OS==="android"){
+                        page.props.navigator.push(
+                        {
+                            title:"二维码",
+                            component:QrcodePage,
+                            passProps: {
+                                onSucess: this.qrcodeSucess,
+                                }
+                        });
+                    }else{
+                        page.props.navigator.push(
+                        {
+                            title:"二维码",
+                            component:QRCodeScreen,
+                            passProps: {
+                                onSucess: this.qrcodeSucess,
+                                }
+                        });
+                    }
+                        }
+                    }>
+                        <View style={styles.titleRow}>
+                            <Icon name="qrcode" size={16} color="#fff" type='font-awesome'/>
+                        </View>
+                    </TouchableOpacity>
                     <View style={styles.titleRow}>
                         <Icon name="bell" size={16} color="#fff" type='font-awesome'/>
                     </View>
                 </View>
             </View>
         )
+    }
+    qrcodeSucess(result){
+        console.info(result);
     }
 }
 

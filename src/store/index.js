@@ -3,8 +3,8 @@
  */
 import {applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk'
-import {persistStore, autoRehydrate} from 'redux-persist';
-import {AsyncStorage} from 'react-native';
+// import {persistStore, autoRehydrate} from 'redux-persist';
+// import {AsyncStorage} from 'react-native';
 import reducers from '../reducers';
 
 // export default function configureStore(onComplete: ()=>void){
@@ -38,9 +38,10 @@ const middlewares = [
 //
 // function logger(store) {
 //     let next = store.dispatch
-//     return function dispatchAndLog(action) {
+//     return function (action) {
 //         let result = next(action)
 //         return result
 //     }
 //
 // }
+logger = (store) => action => store.dispatch(action);

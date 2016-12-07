@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.eguma.barcodescanner.BarcodeScannerPackage;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import org.lovebing.reactnative.baidumap.BaiduMapPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.example.reactnativeappupdate.AppVersionPackage;
@@ -27,6 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new BarcodeScannerPackage(),
+            new RCTCameraPackage(),
             new BaiduMapPackage(getApplicationContext()),
             new VectorIconsPackage(),
             new AppVersionPackage()
