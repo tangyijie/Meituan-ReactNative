@@ -5,8 +5,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import BarcodeScanner from 'react-native-barcodescanner';
 
-
-import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, TextInput} from 'react-native';
+import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, TextInput,Vibration} from 'react-native';
 
 class QrcodePage extends Component {
     // 构造
@@ -19,6 +18,7 @@ class QrcodePage extends Component {
         };
     }
     barcodeReceived(e) {
+        Vibration.vibrate();
         this.props.navigator.state.routeStack[this.props.navigator.state.routeStack.length-1].passProps.onSucess(e);
         this.props.navigator.pop();
     }
