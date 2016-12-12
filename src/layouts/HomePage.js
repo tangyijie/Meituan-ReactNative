@@ -76,11 +76,11 @@ class HomePage extends Component {
     customNavigationBar(page) {
         return(
             <View style={styles.title}>
-                <View style={styles.titleRow}>
+                <View style={[styles.titleRow,{marginRight:6,marginLeft:6}]}>
                     <TouchableOpacity style={styles.titleRow} onPress={() =>{
                         page.props.dispatch(userActions.showLocation(this.selectCity))
                     }}>
-                            <Text style={{color:'#fff'}}>{page.props.Location} </Text>
+                            <Text style={{color:'#fff'}} numberOfLines={1}>{page.props.Location} </Text>
                             <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
                     </TouchableOpacity>
                 </View>

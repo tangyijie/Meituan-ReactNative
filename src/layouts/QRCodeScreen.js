@@ -82,7 +82,7 @@ var CancelButton = React.createClass({
 var styles = StyleSheet.create({
 
   camera: {
-    height: 568,
+    flex: 1,
     alignItems: 'center',
   },
 
