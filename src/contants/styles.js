@@ -3,7 +3,9 @@
  */
 'use strict';
 
-import {StyleSheet,Platform} from 'react-native';
+import {StyleSheet,Platform,Dimensions} from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 export const style = StyleSheet.create({
     ModalTitle:{
@@ -13,6 +15,21 @@ export const style = StyleSheet.create({
         backgroundColor:'#36b9af',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    ModalTitleInput:{
+        flexDirection:'row',
+        height:30,
+        backgroundColor:'#ffffff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius:20,
+        padding:5,
+        flex:3
+    },
+    ModalInputText:{
+        height:22,
+        flexDirection: 'column',
+        width:width/3*2
     },
     Indicator:{
         flexDirection:'row',

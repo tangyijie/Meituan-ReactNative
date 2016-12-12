@@ -14,17 +14,18 @@ import RefreshListview from '../components/RefreshListview';
 import QRCodeScreen from './QRCodeScreen';
 import QrcodePage from './QrcodePage';
 import SelectCity from '../components/SelectCity';
+import Search from '../components/Search';
 
 import * as userActions from '../actions/user';
 
 
 class HomePage extends Component {
     // 构造
-      constructor(props) {
+    constructor(props) {
         super(props);
         // 初始状态
         this.state = {};
-      }
+    }
     // 渲染
     render() {
         return (
@@ -39,16 +40,6 @@ class HomePage extends Component {
             </View>
         )
     }
-    // onRefresh(pulling, pullok, pullrelease){
-    //     return(
-    //         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 44}}>
-    //             <ActivityIndicator size="small" color="gray" />
-    //             {pulling ? <Text>当前PullList状态: pulling...</Text> : null}
-    //             {pullok ? <Text>当前PullList状态: pullok......</Text> : null}
-    //             {pullrelease ? <Text>当前PullList状态: pullrelease......</Text> : null}
-    //         </View>
-    //     )
-    // }
     //下拉刷新执行的操作
     onRefresh(){
         console.info("哈哈哈 我刷新了");
@@ -84,7 +75,9 @@ class HomePage extends Component {
                             <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.titleInput}>
+                <TouchableOpacity style={styles.titleInput} onPress={() =>{
+                    page.props.dispatch(userActions.showModal(this.search,"none"))
+                }}>
                     <View style={styles.titleInput}>
                         <View>
                             <Icon name="search" size={16} color="#36b9af" type='font-awesome'/>
@@ -129,29 +122,12 @@ class HomePage extends Component {
     selectCity(page){
         return(
             <SelectCity />
-            // <View>
-            //     <View style={[style.ModalTitle,{backgroundColor:'#ffffff'}]}>
-            //         <View>
-            //             <Text style={[{color:"#36b9af",fontSize:24,paddingLeft:16}]}>x</Text>
-            //         </View>
-            //         <View style={[style.Indicator]}>
-            //             <TouchableOpacity onPress={() => {page.setState({indicatorState:"county"})}}>
-            //                 <View style={[style.IndicatorItem,{borderTopLeftRadius:5,borderBottomLeftRadius:5,backgroundColor:("county"==page.state.indicatorState?"#36b9af":"#ffffff")}]}>
-            //                     <Text style={[{color:("county"==page.state.indicatorState?"#ffffff":"#36b9af")}]}>国内</Text>
-            //                 </View>
-            //             </TouchableOpacity>
-            //             <TouchableOpacity onPress={() => {page.setState({indicatorState:"foreign"})}}>
-            //                 <View style={[style.IndicatorItem,{borderTopRightRadius:5,borderBottomRightRadius:5,backgroundColor:("county"==page.state.indicatorState?"#ffffff":"#36b9af")}]}>
-            //                     <Text style={[{color:("county"==page.state.indicatorState?"#36b9af":"#ffffff")}]}>海外</Text>
-            //                 </View>
-            //             </TouchableOpacity>
-            //         </View>
-            //         <View>
-            //             <Text style={[{color:"#36b9af",fontSize:24,paddingRight:16}]}> </Text>
-            //         </View>
-            //     </View>
-            //     <Text>2333333</Text>
-            // </View>
+        )
+    }
+    //点击搜索
+    search(page){
+        return(
+            <Search />
         )
     }
     //当扫码成功时执行的操作
@@ -178,7 +154,6 @@ var styles = StyleSheet.create({
         borderRadius:20,
         padding:5,
         flex:3
-
     },
     titleRow:{
         flexDirection:'row',
