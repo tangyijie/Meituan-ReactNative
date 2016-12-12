@@ -13,6 +13,9 @@ import Card from '../components/Card';
 import RefreshListview from '../components/RefreshListview';
 import QRCodeScreen from './QRCodeScreen';
 import QrcodePage from './QrcodePage';
+import SelectCity from '../components/SelectCity';
+
+import * as userActions from '../actions/user';
 
 
 class HomePage extends Component {
@@ -22,7 +25,7 @@ class HomePage extends Component {
         // 初始状态
         this.state = {};
       }
-    // 构造
+    // 渲染
     render() {
         return (
             <View style={{flex:1,backgroundColor: "#f3f3f3"}}>
@@ -46,16 +49,17 @@ class HomePage extends Component {
     //         </View>
     //     )
     // }
-
+    //下拉刷新执行的操作
     onRefresh(){
         console.info("哈哈哈 我刷新了");
     }
-
+    //页面listItem的样式
     listItem(item, sectionID, rowID, highlightRow){
         return(
             <Card data={item} />
         )
     }
+    //页面顶部跟随滚动的部分
     listHeader(){
         return(
                 <View>
@@ -68,30 +72,17 @@ class HomePage extends Component {
                 </View>
             )
     }
+    //该页面自定义的顶部导航
     customNavigationBar(page) {
-        // return(
-        //     <View style={styles.title}>
-        //         <View style={styles.titleRow}>
-        //             <Text style={{color:'#fff'}}>{page.props.Location} </Text>
-        //         </View>
-        //         <View style={styles.titleInput}>
-        //             <View>
-        //             </View>
-        //             <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
-        //         </View>
-        //         <View style={styles.titleRow}>
-        //             <View style={styles.titleRow}>
-        //             </View>
-        //             <View style={styles.titleRow}>
-        //             </View>
-        //         </View>
-        //     </View>
-        // )
         return(
             <View style={styles.title}>
                 <View style={styles.titleRow}>
-                    <Text style={{color:'#fff'}}>{page.props.Location} </Text>
-                    <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
+                    <TouchableOpacity style={styles.titleRow} onPress={() =>{
+                        page.props.dispatch(userActions.showLocation(this.selectCity))
+                    }}>
+                            <Text style={{color:'#fff'}}>{page.props.Location} </Text>
+                            <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.titleInput}>
                     <View>
@@ -101,27 +92,26 @@ class HomePage extends Component {
                 </View>
                 <View style={[styles.titleRow,{paddingLeft:20}]}>
                     <TouchableOpacity onPress={()=>{
-                    if(Platform.OS==="android"){
-                        page.props.navigator.push(
-                        {
-                            title:"二维码",
-                            component:QrcodePage,
-                            passProps: {
-                                onSucess: this.qrcodeSucess,
-                                }
-                        });
-                    }else{
-                        page.props.navigator.push(
-                        {
-                            title:"二维码",
-                            component:QRCodeScreen,
-                            passProps: {
-                                onSucess: this.qrcodeSucess,
-                                }
-                        });
-                    }
+                        if(Platform.OS==="android"){
+                            page.props.navigator.push(
+                            {
+                                title:"二维码",
+                                component:QrcodePage,
+                                passProps: {
+                                    onSucess: this.qrcodeSucess,
+                                    }
+                            });
+                        }else{
+                            page.props.navigator.push(
+                            {
+                                title:"二维码",
+                                component:QRCodeScreen,
+                                passProps: {
+                                    onSucess: this.qrcodeSucess,
+                                    }
+                            });
                         }
-                    }>
+                    }}>
                         <View style={styles.titleRow}>
                             <Icon name="qrcode" size={16} color="#fff" type='font-awesome'/>
                         </View>
@@ -133,6 +123,36 @@ class HomePage extends Component {
             </View>
         )
     }
+    //点击选择城市
+    selectCity(page){
+        return(
+            <SelectCity />
+            // <View>
+            //     <View style={[style.ModalTitle,{backgroundColor:'#ffffff'}]}>
+            //         <View>
+            //             <Text style={[{color:"#36b9af",fontSize:24,paddingLeft:16}]}>x</Text>
+            //         </View>
+            //         <View style={[style.Indicator]}>
+            //             <TouchableOpacity onPress={() => {page.setState({indicatorState:"county"})}}>
+            //                 <View style={[style.IndicatorItem,{borderTopLeftRadius:5,borderBottomLeftRadius:5,backgroundColor:("county"==page.state.indicatorState?"#36b9af":"#ffffff")}]}>
+            //                     <Text style={[{color:("county"==page.state.indicatorState?"#ffffff":"#36b9af")}]}>国内</Text>
+            //                 </View>
+            //             </TouchableOpacity>
+            //             <TouchableOpacity onPress={() => {page.setState({indicatorState:"foreign"})}}>
+            //                 <View style={[style.IndicatorItem,{borderTopRightRadius:5,borderBottomRightRadius:5,backgroundColor:("county"==page.state.indicatorState?"#ffffff":"#36b9af")}]}>
+            //                     <Text style={[{color:("county"==page.state.indicatorState?"#36b9af":"#ffffff")}]}>海外</Text>
+            //                 </View>
+            //             </TouchableOpacity>
+            //         </View>
+            //         <View>
+            //             <Text style={[{color:"#36b9af",fontSize:24,paddingRight:16}]}> </Text>
+            //         </View>
+            //     </View>
+            //     <Text>2333333</Text>
+            // </View>
+        )
+    }
+    //当扫码成功时执行的操作
     qrcodeSucess(result){
         console.info(result);
     }

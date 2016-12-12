@@ -2,11 +2,16 @@
  * Created by mrd on 16/11/3.
  */
 'use strict';
+import {View} from 'react-native';
 
 import * as TYPES from '../contants/types';
 
 const initialState = {
+    ModalVisible : false,
     LoginModalVisible : false,
+    ModalView : function () {
+        return null
+    },
     Location : "定位中...",
     status: null
 };
@@ -39,6 +44,17 @@ export default function user(state=initialState, action){
                 ...state,
                 status:"error",
                 Location:"请选择"
+            }
+        case TYPES.LOCATION_SHOW:
+            return{
+                ...state,
+                ModalVisible:true,
+                ModalView:action.View
+            }
+        case TYPES.LOCATION_HIDE:
+            return{
+                ...state,
+                ModalVisible:false
             }
         default:
             return state;

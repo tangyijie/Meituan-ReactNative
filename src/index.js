@@ -2,12 +2,13 @@
  * Created by mrd on 16/11/2.
  */
 import React, {Component} from 'react';
-import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, TextInput} from 'react-native';
+import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, TextInput} from 'react-native';
 import {connect} from 'react-redux';
 
 import HomePage from './layouts/HomePage';
 import Tabs from './components/Tabs';
 import Login from './components/Login';
+import CustomModal from './components/CustomModal';
 import NavTitle from './components/NavTitle';
 
 import {getLocation} from './actions/user';
@@ -26,6 +27,7 @@ class App extends Component {
         return (
             <View style={{flex : 1}}>
                 <Login />
+                <CustomModal />
                 <Navigator
                     style={{flex : 1}}
                     initialRoute={initialRoute}

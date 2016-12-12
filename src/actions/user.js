@@ -12,6 +12,13 @@ export function hideLogin() {
     return  { type : TYPES.LOGIN_HIDE }
 }
 
+export function showLocation(View) {
+    return { type : TYPES.LOCATION_SHOW,View }
+}
+export function hideLocation() {
+    return { type : TYPES.LOCATION_HIDE }
+}
+
 export function getLocation() {
     return function (dispatch) {
         dispatch({type : TYPES.GETING_LOCATION});
