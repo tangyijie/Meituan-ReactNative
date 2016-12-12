@@ -9,6 +9,7 @@ import * as TYPES from '../contants/types';
 const initialState = {
     ModalVisible : false,
     LoginModalVisible : false,
+    ModalAnimation : 'slide',
     ModalView : function () {
         return null
     },
@@ -45,13 +46,14 @@ export default function user(state=initialState, action){
                 status:"error",
                 Location:"请选择"
             }
-        case TYPES.LOCATION_SHOW:
+        case TYPES.MODAL_SHOW:
             return{
                 ...state,
                 ModalVisible:true,
-                ModalView:action.View
+                ModalView:action.View,
+                ModalAnimation:action.Animated
             }
-        case TYPES.LOCATION_HIDE:
+        case TYPES.MODAL_HIDE:
             return{
                 ...state,
                 ModalVisible:false

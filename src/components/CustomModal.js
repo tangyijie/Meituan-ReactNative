@@ -15,9 +15,10 @@ class CustomModal extends Component {
         this.state = {};
     }
     render() {
+        console.info(this.props.ModalAnimation);
         return(
             <Modal
-                animationType={"slide"}
+                animationType={this.props.ModalAnimation}
                 transparent={false}
                 visible={this.props.ModalVisible}
             >
@@ -32,7 +33,8 @@ class CustomModal extends Component {
 function select(store) {
     return {
         ModalVisible : store.userStore.ModalVisible,
-        ModalView : store.userStore.ModalView
+        ModalView : store.userStore.ModalView,
+        ModalAnimation : store.userStore.ModalAnimation
     }
 }
 

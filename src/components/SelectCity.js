@@ -8,7 +8,7 @@ import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, Te
 
 import {style} from '../contants/styles';
 
-import {hideLocation} from '../actions/user';
+import {hideModal} from '../actions/user';
 
 class SelectCity extends Component {
     // 构造
@@ -21,7 +21,7 @@ class SelectCity extends Component {
         return(
             <View>
                 <View style={[style.ModalTitle,{backgroundColor:'#ffffff'}]}>
-                    <TouchableOpacity onPress={() => {this.props.dispatch(hideLocation())}}>
+                    <TouchableOpacity onPress={() => {this.props.dispatch(hideModal())}}>
                         <View>
                             <Text style={[{color:"#36b9af",fontSize:24,paddingLeft:16}]}>x</Text>
                         </View>

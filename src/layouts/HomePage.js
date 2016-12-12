@@ -78,18 +78,20 @@ class HomePage extends Component {
             <View style={styles.title}>
                 <View style={[styles.titleRow,{marginRight:6,marginLeft:6}]}>
                     <TouchableOpacity style={styles.titleRow} onPress={() =>{
-                        page.props.dispatch(userActions.showLocation(this.selectCity))
+                        page.props.dispatch(userActions.showModal(this.selectCity))
                     }}>
                             <Text style={{color:'#fff'}} numberOfLines={1}>{page.props.Location} </Text>
                             <Icon name="angle-down" size={16} color="#fff" type='font-awesome'/>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.titleInput}>
-                    <View>
-                        <Icon name="search" size={16} color="#36b9af" type='font-awesome'/>
+                <TouchableOpacity style={styles.titleInput}>
+                    <View style={styles.titleInput}>
+                        <View>
+                            <Icon name="search" size={16} color="#36b9af" type='font-awesome'/>
+                        </View>
+                        <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
                     </View>
-                    <Text style={{color:'#aaaaaa',fontSize:12}}>  搜索商家、类品或商圈</Text>
-                </View>
+                </TouchableOpacity>
                 <View style={[styles.titleRow,{paddingLeft:20}]}>
                     <TouchableOpacity onPress={()=>{
                         if(Platform.OS==="android"){

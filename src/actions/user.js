@@ -12,11 +12,11 @@ export function hideLogin() {
     return  { type : TYPES.LOGIN_HIDE }
 }
 
-export function showLocation(View) {
-    return { type : TYPES.LOCATION_SHOW,View }
+export function showModal(View, Animated='slide') {
+    return { type : TYPES.MODAL_SHOW, View, Animated }
 }
-export function hideLocation() {
-    return { type : TYPES.LOCATION_HIDE }
+export function hideModal() {
+    return { type : TYPES.MODAL_HIDE }
 }
 
 export function getLocation() {

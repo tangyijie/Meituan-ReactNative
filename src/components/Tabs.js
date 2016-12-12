@@ -39,7 +39,6 @@ class Tabs extends Component {
     }
 
     render() {
-        console.info(this);
         if(this.props.navigator.state.routeStack.length<=1){
             return(
                 <View style={{height:44, borderWidth:1, borderColor:"#f4f4f4",flexDirection:'row', alignItems:'center', justifyContent:'center', marginTop:5}}>

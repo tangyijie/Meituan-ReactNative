@@ -14,5 +14,7 @@ export const LOGIN_HIDE = 'LOGIN_HIDE';
 export const GETING_LOCATION = "GETING_LOCATION";
 export const LOCATION_DONE = "LOCATION_DONE";
 export const LOCATION_ERROR = "LOCATION_ERROR";
-export const LOCATION_SHOW = "LOCATION_SHOW";
-export const LOCATION_HIDE = "LOCATION_HIDE";
+
+//for modal
+export const MODAL_SHOW = "MODAL_SHOW";
+export const MODAL_HIDE = "MODAL_HIDE";
