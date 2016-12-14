@@ -43,5 +43,13 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         borderWidth:1,
         borderColor:'#36b9af'
+    },
+    NavTitle:{
+        flexDirection:'row',
+        height:(Platform.OS === 'android' ? 44 : 60),
+        paddingTop: (Platform.OS === 'android' ? 0 : 16),
+        backgroundColor:'#36b9af',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })

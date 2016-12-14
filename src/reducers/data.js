@@ -54,6 +54,7 @@ const initialState = {
             sales : 695, outbid:0
         }
     ]
+
 };
 
 export default function data(state=initialState, action){

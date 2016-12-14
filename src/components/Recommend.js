@@ -8,6 +8,8 @@ import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, Te
 
 const { width, height } = Dimensions.get('window');
 
+const RecommendList = [];
+
 class Recommend extends Component {
     // 构造
     constructor(props) {
