@@ -13,7 +13,7 @@ class Card extends Component {
         var item = this.props.data;
         return(
             <View style={[styles.row,{backgroundColor:"#ffffff",marginTop:2,height:height/6,alignItems: 'center'}]}>
-                <Image source={require('../images/loadingPic.png')} style={{width:height/7,height:height/7,margin:10}}/>
+                <Image source={item.pic} style={{width:height/7,height:height/7,margin:10}}/>
                 <View style={[styles.column,{flex:1}]}>
                     <View style={[styles.row,{justifyContent:"space-between"}]}>
                         <Text style={styles.shopName}>{item.shopName}</Text>

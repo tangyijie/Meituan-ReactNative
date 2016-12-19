@@ -8,7 +8,26 @@ import {StyleSheet, Navigator, Platform, View, Text, TouchableOpacity, Modal, Te
 
 const { width, height } = Dimensions.get('window');
 
-const RecommendList = [];
+const RecommendList = [
+    {
+        title:"火爆小吃",detail:"10元超值享",detailColor:"#fdbd5d",pic:require('../images/Recommend/IMG_1659_03.png')
+    },
+    {
+        title:"年末约饭",detail:"折扣大桌餐",detailColor:"#fd7622",pic:require('../images/Recommend/IMG_1659_05.png')
+    },
+    {
+        title:"天天满减",detail:"每天有新优惠",detailColor:"#fc5e56",pic:require('../images/Recommend/IMG_1659_07.png')
+    },
+    {
+        title:"本周佳片",detail:"14.9元起",detailColor:"#fd73ba",pic:require('../images/Recommend/IMG_1659_18.png')
+    },
+    {
+        title:"一元巴厘岛",detail:"年末出国特卖",detailColor:"#91d64e",pic:require('../images/Recommend/IMG_1659_13.png')
+    },
+    {
+        title:"变美不贵",detail:"美发五折抢",detailColor:"#3cc9ea",pic:require('../images/Recommend/IMG_1659_15.png')
+    }
+];
 
 class Recommend extends Component {
     // 构造
@@ -28,12 +47,12 @@ class Recommend extends Component {
 
     renderItem() {
         let obj =[];
-        for(var i = 0; i<6; i++){
+        for(var i = 0; i < RecommendList.length; i++){
             obj.push(
                 <View style={styles.card} key={i}>
-                    <Text style={styles.title}>人气外卖</Text>
-                    <Text style={styles.description}>会员免单福利</Text>
-                    <Image style={styles.image} source={require("../images/loadingPic.png")}/>
+                    <Text style={styles.title}>{RecommendList[i].title}</Text>
+                    <Text style={[styles.description,{color:RecommendList[i].detailColor}]}>{RecommendList[i].detail}</Text>
+                    <Image style={styles.image} source={RecommendList[i].pic}/>
                 </View>
             );
         }
