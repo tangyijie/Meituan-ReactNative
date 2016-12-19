@@ -55,6 +55,10 @@ class MultiSelect extends Component {
         this.setState({dropDownState:!this.state.dropDownState});
     }
 
+    hideSelect(){
+        this.setState({dropDownState:false});
+    }
+
     dropDown(page){
         if(this.state.dropDownState){
             var data = [];
@@ -84,17 +88,46 @@ class MultiSelect extends Component {
     }
 
     renderItem(data){
-        var body = [];
+        let body = [];
+        let selected = "";
+        let selectFun = null;
+        switch (this.state.showPage){
+            case 1:
+                selected = this.state.firstSelect;
+                break;
+            case 2:
+                selected = this.state.secSelect;
+                break;
+            case 3:
+                selected = this.state.thSelect;
+                break;
+        }
         for(let i=0;i<data.length;i++){
             body.push(
-                <TouchableOpacity key={i}>
-                    <View style={styles.secSelectItem}>
+                <TouchableOpacity key={i} onPress={() =>this.clickItem(data[i])}>
+                    <View style={[styles.secSelectItem,{backgroundColor:(data[i]==selected?"#efefef":"#ffffff")}]}>
                         <Text>{data[i]}</Text>
                     </View>
                 </TouchableOpacity>
             )
         }
         return body;
+    }
+
+    clickItem(i){
+        switch (this.state.showPage){
+            case 1:
+                this.setState({firstSelect:i});
+                break;
+            case 2:
+                this.setState({secSelect:i});
+                break;
+            case 3:
+                this.setState({thSelect:i});
+                break;
+        }
+        this.hideSelect();
+
     }
 }
 
