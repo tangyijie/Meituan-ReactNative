@@ -18,3 +18,7 @@ export const LOCATION_ERROR = "LOCATION_ERROR";
 //for modal
 export const MODAL_SHOW = "MODAL_SHOW";
 export const MODAL_HIDE = "MODAL_HIDE";
+
+//for components
+export const INDICATOR_ONE = "INDICATOR_ONE";
+export const INDICATOR_TWO = "INDICATOR_TWO";

@@ -20,12 +20,12 @@ class Indicator extends Component {
             <View>
                 <View style={[style.ModalTitle,{backgroundColor:'#ffffff',height:44,paddingTop:0}]}>
                     <View style={[style.Indicator]}>
-                        <TouchableOpacity onPress={() => {this.setState({indicatorState:"one"})}}>
+                        <TouchableOpacity onPress={() => {this.setState({indicatorState:"one"});this.props.onSelect(this)}}>
                             <View style={[style.IndicatorItem,{borderTopLeftRadius:5,borderBottomLeftRadius:5,width:66,backgroundColor:(("one"==this.state.indicatorState)?"#36b9af":"#ffffff")}]}>
                                 <Text style={[{color:("one"==this.state.indicatorState?"#ffffff":"#36b9af")}]}>{this.props.indicatorData[0]}</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {this.setState({indicatorState:"two"})}}>
+                        <TouchableOpacity onPress={() => {this.setState({indicatorState:"two"});this.props.onSelect(this)}}>
                             <View style={[style.IndicatorItem,{borderTopRightRadius:5,borderBottomRightRadius:5,width:66,backgroundColor:("one"==this.state.indicatorState?"#ffffff":"#36b9af")}]}>
                                 <Text style={[{color:("one"==this.state.indicatorState?"#36b9af":"#ffffff")}]}>{this.props.indicatorData[1]}</Text>
                             </View>

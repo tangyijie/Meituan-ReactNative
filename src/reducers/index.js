@@ -7,11 +7,13 @@ import tabsReducer from './tabs';
 import catsReducer from './cat';
 import headlineReducer from './headline';
 import dataReducer from './data';
+import componentsReducer from './components';
 
 export default combineReducers({
     userStore: userReducer,
     tabsStore: tabsReducer,
     catsStore: catsReducer,
     headlineStore: headlineReducer,
-    dataStore: dataReducer
+    dataStore: dataReducer,
+    componentsStore: componentsReducer
 });

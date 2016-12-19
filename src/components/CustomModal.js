@@ -15,7 +15,6 @@ class CustomModal extends Component {
         this.state = {};
     }
     render() {
-        console.info(this.props.ModalAnimation);
         return(
             <Modal
                 animationType={this.props.ModalAnimation}
