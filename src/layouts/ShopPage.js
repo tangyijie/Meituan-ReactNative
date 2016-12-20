@@ -81,7 +81,9 @@ class ShopPage extends Component {
 
     listItem(item, sectionID, rowID, highlightRow){
         return(
-            <Card data={item} />
+            <TouchableOpacity>
+                <Card data={item} />
+            </TouchableOpacity>
         )
     }
 }

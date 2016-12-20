@@ -47,7 +47,9 @@ class HomePage extends Component {
     //页面listItem的样式
     listItem(item, sectionID, rowID, highlightRow){
         return(
-            <Card data={item} />
+            <TouchableOpacity>
+                <Card data={item} />
+            </TouchableOpacity>
         )
     }
     //页面顶部跟随滚动的部分
