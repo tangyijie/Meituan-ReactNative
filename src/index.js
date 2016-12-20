@@ -36,7 +36,7 @@ class App extends Component {
                         return (
                             <View style={{flex:1}}>
                                 <NavTitle route={route} navigator={navigator} />
-                                <Component {...route.params} navigator={navigator} />
+                                <Component {...route.params} navigator={navigator} route={route}/>
                             </View>
                         )
                     }}
