@@ -9,6 +9,7 @@ import { Icon } from 'react-native-elements';
 import Indicator from '../components/Indicator';
 import MultiSelect from '../components/MultiSelect';
 import Card from '../components/Card';
+import BaiduMap from '../components/BaiduMap/BaiduMap';
 
 import * as mComponents from '../actions/components';
 
@@ -64,9 +65,11 @@ class ShopPage extends Component {
         return (
             <View style={[style.NavTitle,{justifyContent: 'center',backgroundColor:'#ffffff',height:(Platform.OS === 'android' ? 88 : 104),flexDirection: 'column'}]}>
                 <View style={{justifyContent:"space-between",flexDirection:'row',alignItems: 'center',width:width}}>
-                    <View style={{marginLeft:20}}>
-                        <Icon name="map-marker" size={24} color="#36b9af" type='font-awesome'/>
-                    </View>
+                    <TouchableOpacity onPress={()=>{page.props.navigator.push({title: "选择您的位置...",component: BaiduMap})}}>
+                        <View style={{marginLeft:20}}>
+                            <Icon name="map-marker" size={24} color="#36b9af" type='font-awesome'/>
+                        </View>
+                    </TouchableOpacity>
                     <Indicator ref={(indicator) =>{_indicator=indicator}} indicatorData={["全部商家","优惠商家"]} onSelect={(e)=>{this.onSelect(e)}}/>
                     <View style={{marginRight:20}}>
                         <Icon name="search" size={20} color="#36b9af" type='font-awesome'/>
