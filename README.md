@@ -2,10 +2,10 @@
 
 ##备忘:
 
-###Page的Component提供一个封装的方法customNavigationBar(page)自定义该页面的顶部导航
+###一、Page的Component提供一个封装的方法customNavigationBar(page)自定义该页面的顶部导航
 ###传入参数page相当于this
 
-###弹出模态窗口提供了一个封装的方法showModal(View, Animated):
+###二、弹出模态窗口提供了一个封装的方法showModal(View, Animated):
 ###具体用法:
 <pre>
     <code>
