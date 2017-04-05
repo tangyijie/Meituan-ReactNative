@@ -1,9 +1,11 @@
 # Meituan-ReactNative
 
-##备忘:
+### 利用ReactNative仿制美团，使用了Redux
 
-###一、Page的Component提供一个封装的方法customNavigationBar(page)自定义该页面的顶部导航
-###传入参数page相当于this，示例：
+## 备忘:
+
+### 一、Page的Component提供一个封装的方法customNavigationBar(page)自定义该页面的顶部导航
+### 传入参数page相当于this，示例：
 <pre>
     <code>
         render() {...}
@@ -14,8 +16,8 @@
     </code>
 </pre>
 
-###二、弹出模态窗口提供了一个封装的方法showModal(View, Animated):
-###示例:
+### 二、弹出模态窗口提供了一个封装的方法showModal(View, Animated):
+### 示例:
 <pre>
     <code>
         //Animated可以不填,默认为slide
